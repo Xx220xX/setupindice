@@ -8,7 +8,7 @@ class Tora{
    this.volume = 1;
    this.are_base = 1;
    this.serra = serra;
-   this.n = ncortes;
+   this.n = ncortes-2;
   this.recalcular();
  }
  recalcular(){
@@ -18,7 +18,7 @@ class Tora{
     //this.serra = this.dados[2]/w;
     this.are_base = Math.PI*this.d*this.d/4;
     this.volume = this.are_base * this.c;
-    this.largura_ripa = this.d/2*sqrt(2);
+    this.largura_ripa = this.r*sqrt(2);
     this.espessura_ripa = this.largura_ripa/(this.n+1)-this.serra;
     this.volume_ripa = (this.n+1)*this.largura_ripa*this.espessura_ripa*this.c;
     let f= (x)=>{console.log(this.r*this.r-x*x,this.r*this.r,x*x,sqrt(this.r*this.r-x*x));return 0.5*(x*sqrt(this.r*this.r-x*x)+this.r*this.r*atan2(x,sqrt(this.r*this.r-x*x)));};  

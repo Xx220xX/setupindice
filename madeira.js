@@ -34,13 +34,14 @@ function calculate(){
   v.d =    parseFloat(document.getElementById('inp_diametro').value)/100.0;
   v.c =    parseFloat(document.getElementById('inp_comprimento').value);
   v.serra =    parseFloat(document.getElementById('inp_serra').value)/1000.0;
-  v.n =    parseInt(document.getElementById('inp_cortes').value);
+  v.n =    parseInt(document.getElementById('inp_cortes').value)-2;
   v.recalcular();
   console.log(v);
   let fmt = (t,d=1000.0,e=3)=>{return (t/d).toFixed(e);}
+  
   setText('out_ntabuas',"Número de tabuas: "+(v.n+1));
   setText('out_dimensao',"Dimensão da tabua (mmxmmxmm): "+
-  fmt(v.largura_ripa,d=1e-3)+
+  fmt(v.largura_ripa/(v.n+1),d=1e-3)+
   "x"+fmt(v.espessura_ripa,d=1e-3)+
   "x"+fmt(v.c,d=1e-3,e=2));
   
